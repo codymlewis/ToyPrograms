@@ -1,3 +1,3 @@
-# DoublyLinkedList
+# ToyPrograms
 
-A C++ implementation of a linked list (uses GCC)
+A repository containing the various smaller, less significant programs I have made.
