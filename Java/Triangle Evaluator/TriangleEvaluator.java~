@@ -1,0 +1,28 @@
+import javax.swing.*;
+import java.util.*;
+import java.lang.math.*;
+
+public class TriangleEvaluator // class name
+{
+  
+    /*TriangleEvaluator.java - Lab 2
+    * Author: Cody Lewis
+    * Student No. 3283349
+    * Date: 16-03-2017
+    * Description:
+    * Program to determine the type of triangle from the sides
+    */
+  
+  public static void main (String[] args)
+  {
+   double side1;
+   double side2;
+   double side3;
+   
+    
+   side1 = Double.parseDouble(JOptionPane.showInputDialog("Please enter length of side 1: "));
+   side2 = Double.parseDouble(JOptionPane.showInputDialog("Please enter length of side 2: "));
+   side3 = Double.parseDouble(JOptionPane.showInputDialog("Please enter length of side 3: "));
+   
+  }
+}

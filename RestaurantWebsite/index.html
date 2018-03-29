@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--	index.html
+	Author: Cody Lewis - c3283349
+	Date: 18-08-2017
+	Last Modified: 20-10-2017
+	Description:
+	The index website for the Online Food Delivery assignment - SEng1050 A02 -->
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="description" content="Online food delivery across Newcastle" />
+	<meta name="keywords" content="Online,food,delivery,Newcastle,NewcastleAd" />
+	<meta name="author" content="Cody Lewis" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script async="" type="text/Javascript" charset="utf-8" src="back2TopBtn.js"></script>
+	<title>Online food delivery</title>
+	<style>
+		p.welcome {
+			font-size: 110%;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- The heading of the page -->
+	<header>
+		<h1>Online Food Delivery</h1>
+		<nav>
+			<hr />
+			<div>
+				<a href="italian.xml">Italian</a>
+				<a href="burgers.xml">Burgers</a>
+				<a href="contact.html">Contact us</a>
+				<a href="about.html">About us</a>
+				<a href="feedback.html">Send feedback</a>
+			</div>
+			<hr />
+		</nav>
+	</header>
+	<!-- The main article (introduction) -->
+	<article>
+		<h2 class="welcome">Welcome</h2>
+		<p class="welcome"><span>Welcome to the NewcastleAd's Online Food Delivery website.</span> This provides <abbr title="Advertisements">ads</abbr> for various restaurants around Newcastle. It also allows you to order food from those restaurants.</p>
+		<p>Feel free to use the navigation options on the top of the page to find information on restaurants of the specified cuisine.</p>
+		<p>Through here you may see a number of interesting restaurants from an assortment of various cuisines. You can click on any interesting images to expand them.</p>
+		<p>And please send us <a href="feedback.html">feedback</a> about our great service.</p>
+	</article>
+	<!-- The Listing article (Cuisines) -->
+	<article>
+		<h2 id="cl">List of Cuisines</h2>
+		<ul>
+			<li>
+				<figure>
+					<a href="./images/asianFood.jpg"> <img src="./images/asianFoodTN.jpg" alt="Asian Food" /></a>
+					<figcaption> <a href="http://www.japan-guide.com/e/e2341.html">Japan Guide</a> </figcaption>
+				</figure>
+				<strong>Asian</strong>: cuisine that emphasises the use opposing flavours.
+				<em>Asia</em> is the largest and most populous continent causing it's cuisine to have immence variations. Commonly used ingredients accross the cultures are rice, ginger, garlic, chillis, sesame seeds, onions, soy and tofu. The foods are typically
+				either stir fried, steamed or deep fried.
+			</li>
+			<li>
+				<figure>
+					<a href="./images/bbq.jpg"> <img src="./images/bbqTN.jpg" alt="BBQ and Grill" /></a>
+					<figcaption>
+						<a href="https://recipeland.com/recipe/v/russian-shashlik-13568">recipeland</a>
+					</figcaption>
+				</figure>
+				<strong>BBQ &amp; Grill</strong>: There are many countries which cook using barbecue and grill the cooking style provides a char flavour to the foods. Such flavours tend to provide a harsher taste to the foods made within this cuisine
+			</li>
+			<li>
+				<figure>
+					<a href="./images/burger.jpg"> <img src="./images/burgerTN.jpg" alt="Burger" /></a>
+					<figcaption>
+						<a href="http://www.seriouseats.com/recipes/2015/07/teriyaki-burgers-recipe.html"> seriouseats</a>
+					</figcaption>
+				</figure>
+				<strong>Burgers</strong>: A staple food of <em>American</em> cuisine, albiet being known for use in the <em><abbr title="United States of America">USA</abbr></em>, there many types of burgers utilizing elements from many other cuisines.
+			</li>
+			<li>
+				<figure>
+					<a href="./images/italianFood.jpg"> <img src="./images/italianFoodTN.jpg" alt="Italian Food" /></a>
+					<figcaption>
+						<a href="https://traveldeals.company/cuisine/neapolitan-pizza-italy.html"> traveldeals.com </a>
+					</figcaption>
+				</figure>
+				<strong>Italian</strong>: cuisine that is characterized by it's simplicity and regional diversity. The quality of the food is reliant primarilty on the quality of ingredients rather than the preparation. Pasta, vegetables, olive oil and fish are major
+				parts of the cuisine.
+			</li>
+			<li>
+				<figure>
+					<a href="./images/thaiFood.jpg"> <img src="./images/thaiFoodTN.jpg" alt="Thai Food" /></a>
+					<figcaption>
+						<a href="http://eatingthaifood.com/2012/11/isan-street-restaurant-silom-bangkok">eatingthaifood</a>
+					</figcaption>
+				</figure>
+				<strong>Thai</strong>: A cuisine that emphasises lightly prepared dishes with strong aromas and a spicy edge.
+			</li>
+		</ul>
+	</article>
+	<!-- The below line will be a back to top button with js -->
+	<input type='image' src='./images/upArr.png' onclick='toTop()' id='topBtn' title='' alt='Back to Top' />
+	<!-- The webpage information -->
+	<footer>
+		<address>
+				Background image from <a href="http://www.nmgncp.com/white-wallpaper-abstract/6852008.html">nmgncp.com</a><br>
+				Copyright (c) 2017 Copyright Holder All Rights Reserved. <br>
+				<a href="./privacypolicy.html">Privacy Policy</a> <br>
+				<a href="./tac.html">Terms And Conditions</a> <br>
+				Cody Lewis <br>
+				SN: 3283349 <br>
+				c3283349@uon.edu.au <br>
+				Australia <br>
+			</address>
+	</footer>
+</body>
+
+</html>

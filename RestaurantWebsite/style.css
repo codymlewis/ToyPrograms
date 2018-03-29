@@ -1,0 +1,129 @@
+/* style.css
+ * Author: Cody Lewis - c3283349
+ * Date: 18-08-2017
+ * Last Modified: 14-10-2017
+ * Description: Provide a styling for the c3283349/seng1050A02/index.html
+ */
+/* Heading Styles */
+h1 {
+  text-align: center;
+  font-variant: small-caps;
+  color: black;
+}
+
+h2 {
+  font-size: 18px;
+  font-variant: small-caps;
+  text-decoration: underline;
+  clear: left;
+}
+
+h3 {
+  font-size: 15px;
+}
+/* Body text styles */
+body {
+  background-image: url(./images/background.jpg);
+  /*Picture sourced from http://www.nmgncp.com/white-wallpaper-abstract/6852008.html*/
+  margin-left: 1cm;
+  margin-right: 1cm;
+  text-align: left;
+  color: black;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+em {
+  font-family: cursive, sans-serif, fantasy;
+}
+/* Divider styles */
+figure {
+  float: left;
+}
+
+div {
+  overflow: auto;
+}
+
+li {
+  overflow: auto;
+}
+/* Text rendering styles */
+span {
+  font-family: serif;
+  font-style: italic;
+}
+
+/* Navigation Styles */
+#cl {
+  margin-left: 2cm;
+}
+
+hr {
+  border-color: blue;
+}
+/* Image styles */
+img.home {
+  height: 4%;
+  width:  4%;
+  float:left;
+  float:top;
+}
+
+img.logo {
+  float: left;
+  height:10%;
+  width:10%;
+}
+
+img.restaurant {
+  width: 30%;
+  height: 40%;
+}
+
+img.header {
+  height: 50%;
+  width: 50%;
+}
+/* Anchor Styles */
+a:link {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  font-size: 120%;
+}
+
+a:active {
+  color: red;
+}
+
+a:visited {
+  color: purple;
+}
+/* Page bottom styles */
+footer {
+  font-size: 10px;
+}
+
+address {
+  text-align: right;
+  color: #000000;
+}
+/* Back to top button style */
+#topBtn {
+  display: none;  /* at first it will not display */
+  height: 4%;     /* the dimensions */
+  width: 2%;
+  background: grey; /* Background behind the image */
+  position: fixed;  /* So it doesn't scroll away */
+  bottom: 20%;  /* distance from bottom */
+  right: 10%;   /* distance from right */
+  z-index: 99;
+  border: none;   /* Table styling */
+  outline: none;
+  cursor: pointer;  /* defines the cursor action when on it */
+  padding: 5px; /* Table styling */
+  border-radius: 10px;
+}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--	template.xml
+	Author: Cody Lewis - c3283349
+	Date: 18-08-2017
+	Last Modified: 14-09-2017
+	Description:
+	Show the names and general structure of the xml tags for the Online Food Delivery Website -->
+<!DOCTYPE foodDel [
+<!ELEMENT foodDel (cuisine)>
+		<!ELEMENT cuisine (restaurant+)>
+			<!ATTLIST cuisine type (Italian|Burgers) #REQUIRED>
+			<!ELEMENT restaurant (name,logo?,picture+,URL,address,phone+,openingHours,delivery,description)>
+				<!ELEMENT name (#PCDATA)>
+				<!ELEMENT logo (#PCDATA)>
+				<!ELEMENT picture (#PCDATA)>
+				<!ELEMENT URL (#PCDATA)>
+				<!ELEMENT address (number,street,suburb,state,postcode,country)>
+					<!ELEMENT number (#PCDATA)>
+					<!ELEMENT street (#PCDATA)>
+					<!ELEMENT suburb (#PCDATA)>
+					<!ELEMENT state (#PCDATA)>
+					<!ELEMENT postcode (#PCDATA)>
+					<!ELEMENT country (#PCDATA)>
+				<!ELEMENT phone (#PCDATA)>
+				<!ELEMENT openingHours (date+)>
+					<!ELEMENT date (open,close)>
+						<!ATTLIST date day (mon|tue|wed|thu|fri|sat|sun|mon-fri|mon-thu|wed-sat|tue-fri|tue-sun|wed-sun|mon-sun) #REQUIRED>
+						<!ELEMENT open (#PCDATA)>
+						<!ELEMENT close (#PCDATA)>
+				<!ELEMENT delivery (minimumPrice,fee)>
+					<!ELEMENT minimumPrice (#PCDATA)>
+					<!ELEMENT fee (#PCDATA)>
+				<!ELEMENT description (#PCDATA)>
+	<!ENTITY r "Restaurant">
+	<!ENTITY b "Burger">
+	<!ENTITY i "Italian">
+	<!ENTITY pp "per person">
+	<!ENTITY st "Street">
+	<!ENTITY rd "Road">
+	<!ENTITY new "Newcastle">
+	<!ENTITY nsw "New South Wales">
+	<!ENTITY au "Australia">
+]>
+<foodDel>
+	<cuisine type = "&i;">
+		<restaurant>
+			<name>Abatrary &i; &r;</name>
+			<logo>./images/example.png</logo>
+			<picture>./images/example.jpg</picture>
+			<URL>http://www.example.com</URL>
+			<address>
+			  <number>1</number>
+				<street>&new; &st;</street>
+				<suburb>&new;</suburb>
+				<state>&nsw;</state>
+				<postcode>2300</postcode>
+				<country>&au;</country>
+			</address>
+			<phone>000000000</phone>
+			<openingHours>
+				<date day="mon-fri">
+						<open>9:00am</open>
+						<close>5:00am</close>
+				</date>
+			</openingHours>
+			<delivery>
+			  <minimumPrice>$10</minimumPrice>
+				<fee>$5</fee>
+			</delivery>
+			<description>An abitrary example of the data contained in the following xml documents</description>
+		</restaurant>
+	</cuisine>
+</foodDel>

@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=BankAccountManager
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=account\ newName
+comment2.target=void\ changeName(BankAccount,\ java.lang.String)
+comment3.params=account\ newID
+comment3.target=void\ changeID(BankAccount,\ java.lang.String)
+comment4.params=account
+comment4.target=void\ checkBalance(BankAccount)
+comment5.params=account\ amount
+comment5.target=void\ makeDeposit(BankAccount,\ double)
+comment6.params=account\ amount
+comment6.target=void\ makeWithdrawal(BankAccount,\ double)
+numComments=7

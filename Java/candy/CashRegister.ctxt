@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=CashRegister
+comment1.params=cashIn
+comment1.target=CashRegister(int)
+comment2.params=
+comment2.target=CashRegister()
+comment3.params=
+comment3.target=int\ currentBalance()
+comment4.params=amountIn
+comment4.target=void\ acceptAmount(int)
+numComments=5

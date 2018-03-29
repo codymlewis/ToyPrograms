@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Couple()
+comment1.params=option\ newName\ newAge
+comment1.target=void\ addData(int,\ java.lang.String,\ int)
+comment2.params=p\ name\ age
+comment2.target=void\ setData1(Person,\ java.lang.String,\ int)
+comment3.params=
+comment3.target=java.lang.String\ test()
+numComments=4

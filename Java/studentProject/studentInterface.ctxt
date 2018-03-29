@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=studentInterface
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=subject1\ aMark1\ aMark2\ aMark3
+comment2.target=void\ AssignMarks(Subject,\ int,\ int,\ int)
+comment3.params=subject1\ eMark1\ eMark2
+comment3.target=void\ ExamMarks(Subject,\ int,\ int)
+numComments=4
