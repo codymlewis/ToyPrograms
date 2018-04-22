@@ -19,6 +19,5 @@ public class recursiveMass{
 	private double calculateMass(double input){
 			input = calculateMass(input)/(9.81*10E-300);
 			return input;
-		
 	}
 }

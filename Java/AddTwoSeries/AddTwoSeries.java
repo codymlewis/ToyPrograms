@@ -10,8 +10,7 @@ import javax.swing.*;
 import java.util.*;
 
 public class AddTwoSeries {
-	public static void main (String[] args)
-	{
+	public static void main (String[] args){
 		Scanner console = new Scanner(System.in);
 		int numberIn,series,numberOut;
 		
@@ -28,12 +27,10 @@ public class AddTwoSeries {
 		}
 		else{
 			do{
-
 				series = series + 2;
 				numberOut = numberOut + series;
 			}while(series < (numberIn - 1));
 		}
-
 		JOptionPane.showMessageDialog(null,"The infinite sum incrementing by 2 up to " + numberIn + " is " + numberOut);
 		System.exit (0);
 	}

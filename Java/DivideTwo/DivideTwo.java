@@ -1,7 +1,6 @@
 import java.util.*;
 
-public class DivideTwo
-{
+public class DivideTwo{
     /*Divide.java - Lab 3
     * Modified by: Cody Lewis
     * Student No. 3283349
@@ -10,8 +9,7 @@ public class DivideTwo
     * Program to calculate a division
     */
   
- public static void main(String[] args)
- {
+ public static void main(String[] args){
   Scanner keyboard = new Scanner(System.in);
   int numerator;
   int denominator;

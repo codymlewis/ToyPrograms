@@ -1,8 +1,6 @@
-public class Average3
-{
+public class Average3{
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args){
 		// Declares integers for the program 
 		int num1 = 75;
 		int num2 = 137;

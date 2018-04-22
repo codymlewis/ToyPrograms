@@ -28,8 +28,7 @@ public class Arrays{
 				}
 		}while(9!=input);
 	}
-	public void printArray(int[] list, int noOfElements)
-	{
+	public void printArray(int[] list, int noOfElements){
 		int index;
 
 		for(index = 0; index < noOfElements; index++)
