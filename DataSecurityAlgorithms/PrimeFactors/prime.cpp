@@ -1,7 +1,7 @@
 /* prime.cpp
  * Author: Cody Lewis
  * Date: 1/07/2017
- * Updated: 30-MAR-2018
+ * Updated: 25-APR-2018
  * Description:
  * a program that finds the prime numbers up to a bound
  * Can be passed with a number as a command line argument
@@ -9,17 +9,18 @@
 #include<cstdlib>
 #include<iostream>
 #include<sstream>
-#include<vector>
+#include<list>
 bool findPrime(int bound){
 	//Description: finds and prints prime numbers up to a set bound
+	//             O(n), bottom up approach
 	//Pre-conditions: a bound must be sent in
 	//Post-conditions: the prime numbers up to the bound are printed
 	bool isPrime;
-  std::vector<int> primes = {2};
+  std::list<int> primes = {2};
 	for(int counter=3; counter<bound; counter++){
 		isPrime = true;
-    for(std::size_t i = 0; i < primes.size(); i++){
-      if(counter%primes[i] == 0){
+    for(std::list<int>::iterator it = primes.begin(); it != primes.end(); it++){
+      if(counter%*it == 0){
         isPrime = false;
         break;
       }
@@ -29,8 +30,8 @@ bool findPrime(int bound){
 		}
 	}
   std::cout << "The primes up to " << bound << " are ";
-  for(std::size_t i = 0; i < primes.size(); i++){
-    std::cout << primes[i] << ", ";
+  for(std::list<int>::iterator it = primes.begin(); it != primes.end(); it++){
+    std::cout << *it << ", ";
   }
   std::cout << std::endl;
 	return true;
