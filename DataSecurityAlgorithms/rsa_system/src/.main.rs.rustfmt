@@ -5,21 +5,16 @@ use rand::Rng;
  * And a test of dealing with large numbers
  */
 fn main() {
-    let key = choose_pq;
-    let E_of_m = encrypt(vec![3], &key);
-    for digit in E_of_m {
-        print!("{}", digit);
-    }
-    println!();
+    println!("Hello, world!");
 }
-pub fn encrypt(plaintext: &Vec<i8>, key: &(Vec<i8>, Vec<i8>)) -> Vec<i8> {
-    crypt(&plaintext, &key)
+pub fn encrypt(plaintext: isize, key: (isize, isize)) -> isize {
+    crypt(plaintext, key)
 }
-pub fn decrypt(ciphertext: &Vec<i8>, key: &(Vec<i8>, Vec<i8>)) -> Vec<i8> {
-    crypt(&ciphertext, &key)
+pub fn decrypt(ciphertext: isize, key: (isize, isize)) -> isize {
+    crypt(ciphertext, key)
 }
-fn crypt(text: &Vec<i8>, key: &(Vec<i8>, Vec<i8>)) -> isize {
-    fastexp(&text, key.0, key.1)
+fn crypt(text: isize, key: (isize, isize)) -> isize {
+    fastexp(text, key.0, key.1)
 }
 fn choose_pq() -> (Vec<i8>, Vec<i8>) {
     let p = find_a_prime();
@@ -44,30 +39,28 @@ fn choose_d(p: &Vec<i8>, q: &Vec<i8>) -> Vec<i8> {
     }
 }
 fn choose_e(d: &Vec<i8>, p: &Vec<i8>, q: &Vec<i8>) -> Vec<i8> {
-    let p_minus_one = subtract(&p, vec![1]);
-    let q_minus_one = subtract(&q, vec![1]);
-    let phi = product(&p_minus_one, &q_minus_one);
-    let n = product(&p, &q);
-    fastexp(&d, &phi, &n)
+    let mut p_minus_one = p.clone;
+    if p_minus_one[p_minus_one.len() - 1] == 0 {
+        
+    } else {
+        p_minus_one[p_minus_one.len() - 1] = p_minus_one[p_minus_one.len() - 1] - 1;
+    }
 }
-fn fastexp(base: &Vec<i8>, index: &Vec<i8>, modulo: &Vec<i8>) -> Vec<i8> { // fast exponentiation algorithm
-    let mut res: Vec<i8> = vec![1];
-    let mut base = base.clone();
-    let mut index = index.clone();
-    while index.len() >= 1 {
-        if index.len() == 1 && index[0] == 1{
+fn fastexp(base: isize, index: isize, modulo: isize) -> isize { // fast exponentiation algorithm
+    let mut res = 1;
+    let mut base = base;
+    let mut index = index;
+    while index > 1 {
+        if (index % 2) == 0 {
+            base = (base * base) % modulo;
+            index /= 2;
+        } else {
+            res = (res * base) % modulo;
+            index -= 1;
+        }
+        if base == 1 {
             return res;
         }
-        if modulus(index, vec![2]) == 0 {
-            let square = product(base, base);
-            base = modulus(&square, &modulo);
-            index = half(index);
-        } else {
-            let square = product(&res, &base);
-            res = modulus(&square, &modulo);
-            index = subtract(vec![1]);
-        }
-        
     }
     res
 }
@@ -175,28 +168,6 @@ fn modulus(a: &Vec<i8>, b: &Vec<i8>) -> Vec<i8> {
     let mut c = a.clone();
     while compare(&c, &b) != -1 {  
         c = subtract(&c, &b);
-    }
-    c
-}
-fn half(a: &Vec<i8>) -> Vec<i8> { // Assumes number is even
-    let mut c: Vec<i8> = Vec::new();
-    let mut carry = 0;
-    for i in 0..a.len() {
-        let mut og_sum = a[i] + carry;
-        let summand = if og_sum % 2 == 0 {
-            carry = 0;
-            og_sum / 2 
-        } else if og_sum == 0 {
-            carry = 5;
-            0
-        } else {
-            og_sum -= 1;
-            carry = 10;
-            og_sum / 2;
-        }
-        if !(c.len() == 0 && summand == 0) {
-            c.push(summand);
-        }
     }
     c
 }
