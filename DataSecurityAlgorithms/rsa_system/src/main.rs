@@ -5,9 +5,9 @@ use rand::Rng;
  * And a test of dealing with large numbers
  */
 fn main() {
-    let key = choose_pq;
-    let E_of_m = encrypt(vec![3], &key);
-    for digit in E_of_m {
+    let key = choose_pq();
+    let e_of_m = encrypt(&vec![3], &key);
+    for digit in e_of_m {
         print!("{}", digit);
     }
     println!();
@@ -18,8 +18,8 @@ pub fn encrypt(plaintext: &Vec<i8>, key: &(Vec<i8>, Vec<i8>)) -> Vec<i8> {
 pub fn decrypt(ciphertext: &Vec<i8>, key: &(Vec<i8>, Vec<i8>)) -> Vec<i8> {
     crypt(&ciphertext, &key)
 }
-fn crypt(text: &Vec<i8>, key: &(Vec<i8>, Vec<i8>)) -> isize {
-    fastexp(&text, key.0, key.1)
+fn crypt(text: &Vec<i8>, key: &(Vec<i8>, Vec<i8>)) -> Vec<i8> {
+    fastexp(&text, &key.0, &key.1)
 }
 fn choose_pq() -> (Vec<i8>, Vec<i8>) {
     let p = find_a_prime();
@@ -44,8 +44,8 @@ fn choose_d(p: &Vec<i8>, q: &Vec<i8>) -> Vec<i8> {
     }
 }
 fn choose_e(d: &Vec<i8>, p: &Vec<i8>, q: &Vec<i8>) -> Vec<i8> {
-    let p_minus_one = subtract(&p, vec![1]);
-    let q_minus_one = subtract(&q, vec![1]);
+    let p_minus_one = subtract(&p, &vec![1]);
+    let q_minus_one = subtract(&q, &vec![1]);
     let phi = product(&p_minus_one, &q_minus_one);
     let n = product(&p, &q);
     fastexp(&d, &phi, &n)
@@ -58,14 +58,15 @@ fn fastexp(base: &Vec<i8>, index: &Vec<i8>, modulo: &Vec<i8>) -> Vec<i8> { // fa
         if index.len() == 1 && index[0] == 1{
             return res;
         }
-        if modulus(index, vec![2]) == 0 {
-            let square = product(base, base);
+        let even_test = modulus(&index, &vec![2]);
+        if even_test.len() == 1 && even_test[0] == 0 {
+            let square = product(&base, &base);
             base = modulus(&square, &modulo);
-            index = half(index);
+            index = half(&index);
         } else {
             let square = product(&res, &base);
             res = modulus(&square, &modulo);
-            index = subtract(vec![1]);
+            index = subtract(&index, &vec![1]);
         }
         
     }
@@ -107,6 +108,7 @@ fn add(a: &Vec<i8>, b: &Vec<i8>) -> Vec<i8> {
         }
     }
     let mut carry = 0;
+    let mut sum_piece: Vec<i8> = Vec::new();
     for i in (0..min(a.len(), b.len())).rev() {
         let mut summand = a[a_offset + i] + b[b_offset + i] + carry;
         if summand >= 10 {
@@ -115,7 +117,10 @@ fn add(a: &Vec<i8>, b: &Vec<i8>) -> Vec<i8> {
         } else {
             carry = 0;
         }
-        c.push(carry);
+        sum_piece.push(summand);
+    }
+    for i in (0..sum_piece.len()).rev() {
+        c.push(sum_piece[i]);
     }
     c
 }
@@ -144,6 +149,7 @@ fn subtract(a: &Vec<i8>, b: &Vec<i8>) -> Vec<i8> {
         }
     }
     let mut carry = 0;
+    let mut sum_piece: Vec<i8> = Vec::new();
     for i in (0..min(a.len(), b.len())).rev() {
         let mut summand = a[a_offset + i] - b[b_offset + i] - carry;
         if summand < 0 {
@@ -152,6 +158,10 @@ fn subtract(a: &Vec<i8>, b: &Vec<i8>) -> Vec<i8> {
         } else {
             carry = 0;
         }
+        sum_piece.push(summand);
+    }
+    for i in (0..sum_piece.len()).rev() {
+        c.push(sum_piece[i]);
     }
     c
 }
@@ -192,8 +202,8 @@ fn half(a: &Vec<i8>) -> Vec<i8> { // Assumes number is even
         } else {
             og_sum -= 1;
             carry = 10;
-            og_sum / 2;
-        }
+            og_sum / 2
+        };
         if !(c.len() == 0 && summand == 0) {
             c.push(summand);
         }
