@@ -1,4 +1,4 @@
-# One time pad encryption/decryption program 
+# One time pad encryption/decryption program
 # Only supports lower case messages with no spaces
 # Author: Cody Lewis
 # Version: 2.0
@@ -58,28 +58,28 @@ if __name__ == "__main__":
                                 f.write(cipher)
                                 print("Wrote cipher to {}".format(f.name))
                             with open(flags["file"][0:flags["file"].find(".")]+"-cipher-key.json", "w") as f:
-                                json.dump(key,f)
+                                json.dump(key, f)
                                 print("Dumped key to {}".format(f.name))
-                        elif(flags["decrypt"]):
+                        elif flags["decrypt"]:
                             cipher = ""
-                            with open(flags["file"],"r") as f:
+                            with open(flags["file"], "r") as f:
                                 for line in f:
                                     cipher = cipher + line
                             key = []
-                            with open(flags["file1"],"r") as f:
+                            with open(flags["file1"], "r") as f:
                                 key = json.load(f)
-                            message = decrypt(cipher,key)
+                            message = decrypt(cipher, key)
                             print("Decrypted message")
-                            with open(flags["file"][0:flags["file"].find(".")]+"-message.txt","w") as f:
+                            with open(flags["file"][0:flags["file"].find(".")]+"-message.txt", "w") as f:
                                 f.write(message)
                                 print("Wrote message to {}".format(f.name))
                     else:
-                        if(flags["encrypt"]):
+                        if flags["encrypt"]:
                             message = args[i+1]
-                            i+=1
-                            cipher,key = encrypt(message)
-                            print("Cipher:{}\nKey:{}".format(cipher,key))
-                        elif(flags["decrypt"]):
+                            i += 1
+                            cipher, key = encrypt(message)
+                            print("Cipher:{}\nKey:{}".format(cipher, key))
+                        elif flags["decrypt"]:
                             cipher = args[i+1]
                             keyStr = args[i+2]
                             keyStr = keyStr[1:len(keyStr)-1]
