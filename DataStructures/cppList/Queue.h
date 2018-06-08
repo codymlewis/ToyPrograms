@@ -1,24 +1,28 @@
+/**
+ * A Queue implemented by inheritance
+ * Author: Cody Lewis
+ */
 #ifndef QUEUE_h
 #define QUEUE_h
 #include "List.h"
-namespace lewis_ds{
+namespace lewis_ds {
   template<typename T>
-    class Queue: private List<T>{
+    class Queue: private List<T> {
       private:
       public:
-        Queue(){
+        Queue() {
           List<T>();
         };
-        ~Queue(){
+        ~Queue() {
           List<T>::~List();
         };
-        void enqueue(T data){
+        void enqueue(T data) {
           List<T>::push_back(data);
         };
-        void dequeue(){
+        void dequeue() {
           List<T>::pop_front();
         };
-        T peek(){
+        T peek() {
           return List<T>::front();
         };
     };

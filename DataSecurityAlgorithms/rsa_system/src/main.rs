@@ -6,6 +6,7 @@ use rand::Rng;
  */
 fn main() {
     let key = choose_pq();
+    println!("Encryption");
     let e_of_m = encrypt(&vec![3], &key);
     for digit in e_of_m {
         print!("{}", digit);
@@ -22,8 +23,11 @@ fn crypt(text: &Vec<i8>, key: &(Vec<i8>, Vec<i8>)) -> Vec<i8> {
     fastexp(&text, &key.0, &key.1)
 }
 fn choose_pq() -> (Vec<i8>, Vec<i8>) {
+    println!("Finding p");
     let p = find_a_prime();
+    println!("Finding q");
     let q = find_a_prime();
+    println!("Comparing them");
     if compare(&p, &q) == 0 {
         return choose_pq();
     }
@@ -91,8 +95,22 @@ fn find_a_prime() -> Vec<i8> {
     for _i in 0..100 {
         prime.push(rand::thread_rng().gen_range(0, 10));
     }
-    if (prime[99] % 2) == 1 || !is_prime(&prime){
-        return find_a_prime();
+    print!("A prime: ");
+    for i in &prime {
+        print!("{}", i);
+    }
+    println!();
+    while (prime[99] % 2) == 1 || !is_prime(&prime){
+        prime = Vec::new();
+        for _i in 0..100 {
+            prime.push(rand::thread_rng().gen_range(0, 10));
+        }
+        print!("A prime: ");
+        for i in &prime {
+            print!("{}", i);
+        }
+        println!();
+
     }
     prime
 }
@@ -211,11 +229,22 @@ fn half(a: &Vec<i8>) -> Vec<i8> { // Assumes number is even
     c
 }
 fn is_prime(n: &Vec<i8>) -> bool {
-    let i: Vec<i8> = vec![0];
-    while compare(&i, &n) != 0 {
-        if modulus(&n, &i)[0] == 0 {
-            return false;
-        }
+    println!("Checking primality");
+    if n[n.len() - 1] % 2 == 0 {
+        return false;
     }
-    true
+    let mut i: Vec<i8> = vec![0];
+    let mut result = false;
+    while compare(&i, &n) != 0 {
+        let modulo = modulus(&n, &i);
+        for digit in modulo {
+            if digit != 0 {
+                result = true;
+            }
+        }
+        if !result { return false; }
+        result = false;
+        i = add(&i, &vec![1]);
+    }
+    result
 }
