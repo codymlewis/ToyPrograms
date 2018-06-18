@@ -7,6 +7,7 @@
  */
 #include<iostream>
 #include<string>
+#include<list>
 std::string convert(double input){
   std::string output = "";
   // find the mixed fraction
@@ -37,7 +38,6 @@ std::string convert(double input){
   if(gcf != 0){
     denomonator/=gcf;
     numerator/=gcf;
-  } else {
   }
   output = output + std::to_string(numerator) + "/" + std::to_string(denomonator);
   return output;

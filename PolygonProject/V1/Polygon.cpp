@@ -64,7 +64,7 @@ namespace lewis_a1 {
     return smallDist;
   }
   double Polygon::findArea() const{
-  // A = (1/2)*ABS(Sigma(i=0,n-2)((x_i + x_i+1)*(y_i + y_i+1)))
+  // A = (1/2)*ABS(Sigma(i=0,n-2)((x_i + x_i+1)*(y_i - y_i+1)))
     if(points->isEmpty()){
       return 0;
     } else {
@@ -80,7 +80,7 @@ namespace lewis_a1 {
         } else {
           next = pointsCp->front();
         }
-        summand = (curr.getX() + next.getX()) * (curr.getY() + next.getY());
+        summand = (curr.getX() + next.getX()) * (curr.getY() - next.getY());
         if(summand < 0){ 
           summand*=-1; // Absolute value
         }
