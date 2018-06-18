@@ -8,4 +8,5 @@ public class Staff implements Comparable<Staff>{
   public int compareTo(Staff o){
     return staffID.compareTo(o.getID());
   }
+  public String toString(){ return staffID; }
 }
