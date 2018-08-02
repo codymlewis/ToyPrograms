@@ -11,7 +11,7 @@ public class CDLList<obj>{
   // Member Variables
   private Node<obj> sentinal,current;
   public boolean isEmpty;
-  
+
   // Constructor
   public CDLList(){
     isEmpty = true;
@@ -20,7 +20,7 @@ public class CDLList<obj>{
     sentinal.setNext(sentinal);
     current = sentinal;
   }
-  
+
   // Mutators
   public void push(obj data){
     if(isEmpty){
