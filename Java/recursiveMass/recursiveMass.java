@@ -3,7 +3,7 @@ public class recursiveMass{
 	static Scanner console = new Scanner(System.in);
 	public static void main(String[] args){
 		recursiveMass rMass = new recursiveMass();
-			rMass.run();
+		rMass.run();
 
 	}
 	private void run(){
@@ -14,7 +14,6 @@ public class recursiveMass{
 		}catch(StackOverflowError e){
 			System.err.println("Yo' Mama's so fat the recursive function computing her mass just caused a stack overflow");
 		}
-		
 	}
 	private double calculateMass(double input){
 			input = calculateMass(input)/(9.81*10E-300);
