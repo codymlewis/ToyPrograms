@@ -10,9 +10,9 @@ field = board.board()
 
 def permutate(turn):
    # permutation finding
-#   print(field.toString())
+   print(field.toString())
    if(field.connectFour(0,0,'B') or field.connectFour(0,0,'R')):
-#      print('Connect Four!')
+      print('Connect Four!')
       return turn
    if(turn%2 == 0):
       pType = 'R'
