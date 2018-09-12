@@ -1,4 +1,4 @@
-# An O(log(n)) factorial definition
+# An O(nlog(n)) factorial definition
 def fact(lower, upper):
     if (upper - lower) % 2 is 0:
         upper_bound_add = 1  # so the same number is not counted twice
