@@ -24,7 +24,7 @@ function findLongestWords() {
     var words = FS.readFileSync("words.txt").toString(); // word list from https://github.com/dwyl/english-words
     var wordsList = words.split("\n");
     wordsList = mergeSort(wordsList);
-    var badLetters = /[gkmqvwxzio]/;
+    var badLetters = /[gkmqvwxz]/;
     var longestWordLength = wordsList[wordsList.length - 1].length;
     var longestAcceptableWords = [];
     for (var i = wordsList.length - 1; i > 0; --i) {

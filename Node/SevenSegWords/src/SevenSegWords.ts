@@ -23,7 +23,7 @@ function findLongestWords(): string[] {
     const words: string = FS.readFileSync("words.txt").toString(); // word list from https://github.com/dwyl/english-words
     let wordsList: string[] = words.split("\n");
     wordsList = mergeSort(wordsList);
-    const badLetters: RegExp = /[gkmqvwxzio]/;
+    const badLetters: RegExp = /[gkmqvwxz]/;
     let longestWordLength: number = wordsList[wordsList.length - 1].length;
     let longestAcceptableWords: string[] = [];
     for(let i: number = wordsList.length - 1; i > 0; --i) {
