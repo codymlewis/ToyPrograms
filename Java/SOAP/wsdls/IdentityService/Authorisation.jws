@@ -1,0 +1,31 @@
+import org.apache.axis.client.Call;
+import org.apache.axis.client.Service;
+/**
+ * Authorisation - SENG3400A2
+ * Authorise a client
+ *
+ * @author Cody Lewis
+ * @since 2018-10-07
+ */
+public class Authorisation {
+    private final String ENDPOINT = "http://localhost:8080/axis/IdentityService/IdentityService.jws";
+    private Service service;
+    public Authorisation() {
+        service = new Service();
+    }
+    /**
+     * Find out whether a session key is associated with a user
+     * @param key The session key to check
+     * @return true if the associated with a user else false
+     */
+    public Boolean authorise(String key) {
+        try {
+            Call call = (Call) service.createCall();
+            call.setTargetEndpointAddress(new java.net.URL(ENDPOINT));
+            call.setOperationName("keyInUse");
+            return (Boolean) call.invoke(new Object[] { key });
+        } catch (Exception e) {
+            return false;
+        }
+    }
+}

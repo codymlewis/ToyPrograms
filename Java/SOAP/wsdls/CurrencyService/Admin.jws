@@ -1,0 +1,173 @@
+import org.apache.axis.client.Call;
+import org.apache.axis.client.Service;
+import org.apache.axis.encoding.XMLType;
+
+import Currencies.*;
+/**
+ * Authorisation - SENG3400A2
+ * Authorise a client
+ *
+ * @author Cody Lewis
+ * @since 2018-10-07
+ */
+public class Admin {
+    private final String AUTH_ENDPOINT = "http://localhost:8080/axis/IdentityService/Authorisation.jws";
+    private Service authService;
+    /**
+     * Default constructor
+     */
+    public Admin() {
+        Currencies.init();
+        authService = new Service();
+    }
+    /**
+     * Authorize the session key as an admin
+     * @param sessionKey The session key to use
+     * @return true if authorized else false
+     */
+    private Boolean authorise(String sessionKey) throws Exception {
+        Call call = (Call) authService.createCall();
+        call.setTargetEndpointAddress(new java.net.URL(AUTH_ENDPOINT));
+        call.setOperationName("authorise");
+        return (Boolean) call.invoke(new Object[] { sessionKey });
+    }
+    /**
+     * Add a currency
+     * @param sessionKey The key to authorise as an admin
+     * @param currencyCode The code of the currency to add
+     * @return true if the currency is added otherwise false
+     */
+    public Boolean addCurrency(String sessionKey, String currencyCode) {
+        try {
+            if(authorise(sessionKey)) {
+                return Currencies.addCurrency(currencyCode);
+            } else {
+                throw new Exception();
+            }
+        } catch(Exception e) { // generic exceptions used as specifics don't change interactions
+            return null;
+        }
+    }
+    /**
+     * Remove a currency
+     * @param sessionKey The key to authorise as an admin
+     * @param currencyCode The code of the currency to remove
+     * @return true if the currency is removed otherwise false
+     */
+    public Boolean removeCurrency(String sessionKey, String currencyCode) {
+        try {
+            if(authorise(sessionKey)) {
+                return Currencies.removeCurrency(currencyCode);
+            } else {
+                throw new Exception();
+            }
+        } catch(Exception e) {
+            return null;
+        }
+    }
+    /**
+     * List the currencies that are stored in the system
+     * @param sessionKey The key to authorise as an admin
+     * @return A String array stating each of the currencies
+     */
+    public String[] listCurrencies(String sessionKey) {
+        try {
+            if(authorise(sessionKey)) {
+                return Currencies.listCurrencies();
+            } else {
+                throw new Exception();
+            }
+        } catch(Exception e) {
+            return null;
+        }
+    }
+    /**
+     * List the available conversions for a specified currency
+     * @param sessionKey The key to authorise as an admin
+     * @param currencyCode The code of the currency to list conversions for
+     * @return A String array stating each of the conversions for the specified currency
+     */
+    public String[] conversionsFor(String sessionKey, String currencyCode) {
+        try {
+            if(authorise(sessionKey)) {
+                return Currencies.conversionsFor(currencyCode);
+            } else {
+                throw new Exception();
+            }
+        } catch(Exception e) {
+            return null;
+        }
+    }
+    /**
+     * Add a rate between two currencies stored within the system
+     * @param sessionKey The key to authorise as an admin
+     * @param fromCurrencyCode The currency to convert from
+     * @param toCurrencyCode The currency to convert
+     * @param conversionRate The rate of conversion between the 2 currencies
+     * @return true if the rate is added else false
+     */
+    public Boolean addRate(String sessionKey, String fromCurrencyCode, String toCurrencyCode, Double conversionRate) {
+        try {
+            if(authorise(sessionKey)) {
+                return Currencies.addRate(fromCurrencyCode, toCurrencyCode, conversionRate);
+            } else {
+                throw new Exception();
+            }
+        } catch(Exception e) {
+            return null;
+        }
+    }
+    /**
+     * Update a rate between two currencies stored within the system
+     * @param sessionKey The key to authorise as an admin
+     * @param fromCurrencyCode The currency to convert from
+     * @param toCurrencyCode The currency to convert
+     * @param conversionRate The rate of conversion between the 2 currencies
+     * @return true if the rate is updated else false
+     */
+    public Boolean updateRate(String sessionKey, String fromCurrencyCode, String toCurrencyCode, Double conversionRate) {
+        try {
+            if(authorise(sessionKey)) {
+                return Currencies.updateRate(fromCurrencyCode, toCurrencyCode, conversionRate);
+            } else {
+                throw new Exception();
+            }
+        } catch(Exception e) {
+            return false;
+        }
+    }
+    /**
+     * Remove a rate between two currencies stored within the system
+     * @param sessionKey The key to authorise as an admin
+     * @param fromCurrencyCode The currency to convert from
+     * @param toCurrencyCode The currency to convert
+     * @return true if the rate is removed else false
+     */
+    public Boolean removeRate(String sessionKey, String fromCurrencyCode, String toCurrencyCode) {
+        try {
+            if(authorise(sessionKey)) {
+                return Currencies.removeRate(fromCurrencyCode, toCurrencyCode);
+            } else {
+                throw new Exception();
+            }
+        } catch(Exception e) {
+            return false;
+        }
+    }
+    /**
+     * List the conversions within the system
+     * @param sessionKey The key to authorise as an admin
+     * @return A String array of the conversions
+     */
+    public String[] listRates(String sessionKey) {
+        try {
+            if(authorise(sessionKey)) {
+                return Currencies.listRates();
+            } else {
+                throw new Exception();
+            }
+        } catch(Exception e) {
+            return null;
+        }
+    }
+}

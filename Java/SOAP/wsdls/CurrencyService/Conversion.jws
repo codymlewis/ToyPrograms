@@ -1,0 +1,51 @@
+import Currencies.*;
+/**
+ * Conversion - SENG3400A2
+ * Endpoint for conversion of currencies
+ *
+ * @author Cody Lewis
+ * @since 2018-10-08
+ */
+public class Conversion {
+    public Conversion() {
+        Currencies.init();
+    }
+    /**
+     * Get a list of the conversions rates
+     * @return An array of Strings showing the conversion rates
+     */
+    public String[] listRates() {
+        try {
+            return Currencies.listRates();
+        } catch(Exception e) {
+            return null;
+        }
+    }
+    /**
+     * Find the from conversion rate from a specified currency to  specified currency
+     * @param fromCurrencyCode The code of the currency to convert from
+     * @param toCurrencyCode The code of the currency to convert to
+     * @return -1.0 if they have no conversion else their conversion rate
+     */
+    public Double rateOf(String fromCurrencyCode, String toCurrencyCode) {
+        try {
+            return Currencies.rateOf(fromCurrencyCode, toCurrencyCode);
+        } catch(Exception e) {
+            return null;
+        }
+    }
+    /**
+     * Calculate the conversion of an amount between 2 specified currencies
+     * @param fromCurrencyCode The code of the currency to convert from
+     * @param toCurrencyCode The code of the currency to convert to
+     * @param amount The amount to convert
+     * @return -1.0 if there is no conversion rate else their amount * rate * 0.99
+     */
+    public Double convert(String fromCurrencyCode, String toCurrencyCode, Double amount) {
+        try {
+            return Currencies.convert(fromCurrencyCode, toCurrencyCode, amount);
+        } catch(Exception e) {
+            return null;
+        }
+    }
+}
