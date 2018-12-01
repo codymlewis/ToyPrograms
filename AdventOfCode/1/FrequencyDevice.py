@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
+'''
+Solution to https://adventofcode.com/2018/day/1
+Author: Cody Lewis
+Date: 2018-12-01
+'''
 
 
 def memoize_changes():
+    '''
+    Create a table of the frequency changes.
+    '''
     changes = []
     with open("Changes.txt") as f:
         for line in f:
@@ -11,6 +19,9 @@ def memoize_changes():
 
 
 def find_final_frequency(changes=memoize_changes()):
+    '''
+    Sum the changes together.
+    '''
     final_frequency = 0
     for change in changes:
         final_frequency += change
@@ -18,6 +29,9 @@ def find_final_frequency(changes=memoize_changes()):
 
 
 def find_first_double(changes=memoize_changes()):
+    '''
+    Find a double of the sum cycle.
+    '''
     running_frequency = 0
     occured_frequencies = {running_frequency : True}
     while True:

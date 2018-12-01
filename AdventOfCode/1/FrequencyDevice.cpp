@@ -1,7 +1,15 @@
 #include <iostream>
 #include <cstdlib>
 #include <unordered_set>
+/**
+ * Solution to https://adventofcode.com/2018/day/1
+ * Author: Cody Lewis
+ * Date 2018-12-01
+ */
 
+/**
+ * Take the argument input and give back a table of frequency changes.
+ */
 int* memoize_changes(int argc, char* argv[]) {
   int* changes = (int*) malloc(sizeof(int) * (argc - 1));
   for(int i = 1; i < argc; ++i) {
@@ -10,6 +18,9 @@ int* memoize_changes(int argc, char* argv[]) {
   return changes;
 }
 
+/**
+ * Sum up the table of changes.
+ */
 int find_final_frequency(int num_changes, int* changes) {
   int final_frequency = 0;
   for(int i = 0; i < num_changes; ++i) {
@@ -18,6 +29,10 @@ int find_final_frequency(int num_changes, int* changes) {
   return final_frequency;
 }
 
+/**
+ * Continually cycle through the changes until a sum occurs twice,
+ * return that sum
+ */
 long find_first_double(int num_changes, int* changes) {
   long current_frequency = 0;
   std::unordered_set<int>* occured_frequencies = new std::unordered_set<int>();
