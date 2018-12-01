@@ -1,4 +1,4 @@
 #!/bin/sh
 
 g++ -o FrequencyDevice FrequencyDevice.cpp
-./FrequencyDevice $(cat Changes.txt)
+./FrequencyDevice $(sed 's/\n/ /g' Changes.txt)
