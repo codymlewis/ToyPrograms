@@ -13,14 +13,14 @@ public class AddTwoSeries {
 	public static void main (String[] args){
 		Scanner console = new Scanner(System.in);
 		int numberIn,series,numberOut;
-		
+
 		series = -2;
 		numberOut = 0;
 		numberIn = Integer.parseInt(JOptionPane.showInputDialog("Please enter your number: "));
 
 		if((numberIn/2)*2 == numberIn){
 			do{
-					
+
 				series = series + 2;
 				numberOut = numberOut + series;
 			}while(series < numberIn);
@@ -36,4 +36,4 @@ public class AddTwoSeries {
 	}
 }
 
-			   
+

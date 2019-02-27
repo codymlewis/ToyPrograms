@@ -33,7 +33,7 @@
           end subroutine pushHead
 
           subroutine pushTail (newContent)
-            implicit none 
+            implicit none
             integer, intent(in) :: newContent
             type(Node), pointer :: temp
             if (.not. associated(head)) then
@@ -49,7 +49,7 @@
               temp => null ()
             endif
           end subroutine pushTail
-          
+
           subroutine pushCurrent (newContent)
             implicit none
             integer, intent(in) :: newContent
@@ -83,7 +83,7 @@
               endif
             endif
           end subroutine next
-          
+
           ! popping functions
           function popHead () result (content)
             implicit none
@@ -154,7 +154,7 @@
               content = 0
             endif
           end function popCurrent
- 
+
           ! printing function
           subroutine printList ()
             implicit none

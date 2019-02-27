@@ -16,7 +16,7 @@ const int MEDIUM = 25;
 const int HARD = 10;
 const int EXTRA_HARD = 1;
 bool fizz(int counter){
-//sees if the input int is a fizz
+	//sees if the input int is a fizz
 	for(int i = 0; i < fizzLen; ++i){
 		if(!counter%FIZZ[i]){
 			return 1;
@@ -25,7 +25,7 @@ bool fizz(int counter){
 	return 0;
 }
 bool buzz(int counter){
-//sees whether the input int is a buzz
+	//sees whether the input int is a buzz
 	for(int i = 0; i < buzzLen; ++i){
 		if(!counter%BUZZ[i]){
 			return 1;

@@ -7,11 +7,11 @@
  * Program that shows the basic operations with linked lists in java
  */
 import java.util.*;
-public class ListExample{
+public class List{
 	static Scanner console = new Scanner(System.in);
 	static int initialCapacity = 20;	//declares the original size of the list
 	/* Description:
-	 * Goes through the operations with the ArrayList class 
+	 * Goes through the operations with the ArrayList class
 	 * Pre-conditions:
 	 * None
 	 * Post-conditions:
@@ -22,7 +22,7 @@ public class ListExample{
 		Double temp; int cTemp;
 		//Loop places the natural numbers from the closed interval [1,20] into the list
 		for(int counter = 0; counter<initialCapacity; counter++){
-			cTemp = counter+1;		
+			cTemp = counter+1;
 			temp = new Double(cTemp);
 			frstList.add(temp);
 		}

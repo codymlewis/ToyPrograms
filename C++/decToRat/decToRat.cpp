@@ -11,7 +11,7 @@
 std::string convert(double input){
   std::string output = "";
   // find the mixed fraction
-  if(input > 1){ 
+  if(input > 1){
     int i;
     for(i = 0; input > 1; input--){
       i++;

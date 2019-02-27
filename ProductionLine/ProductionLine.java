@@ -91,7 +91,7 @@ public class ProductionLine{
         result.setNext(new Stage(sstream.next(), result, null, sstream.nextDouble()*mean, sstream.nextDouble()*range));
       } else if(current.length > 1){
         result = new JoiningStorage(id, qmax); // only 1 Stage after this
-      } else { 
+      } else {
         result = new LinearStorage(id, qmax);
       }
       for(int i = 0; i < current.length; i++){
