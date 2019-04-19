@@ -4,7 +4,7 @@
 # Date:   4-JAN-2018
 # Mod.:   5-JAN-2018
 from random import randint # for generating random numbers
-import board # my connect four python library 
+import board # my connect four python library
 
 field = board.board()   # the board object
 
@@ -43,4 +43,4 @@ while(True):
       print("CPU wins!")
       break
 
-   
+

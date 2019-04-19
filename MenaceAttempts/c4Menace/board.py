@@ -36,7 +36,7 @@ class board:
          x = x + "|"
          x = x + "\n"
       return x
-   
+
    def columnFull(self,column):
        if(self.boardArr[0][column].isEmpty()):
           return False
@@ -78,11 +78,11 @@ class board:
    def connectFour(self,row,column,pType):
       if(self.boardArr[row][column].getType() == pType):
          if((row+1 < self.rows) and (self.boardArr[row+1][column].getType() == pType)):
-            end = self.connectDown(row+1,column,pType,2) # 2 pieces are already shown to be matching   
+            end = self.connectDown(row+1,column,pType,2) # 2 pieces are already shown to be matching
             if(end):
                return end
          if((column+1 < self.columns) and (self.boardArr[row][column+1].getType() == pType)):
-            end = self.connectRight(row,column+1,pType,2) 
+            end = self.connectRight(row,column+1,pType,2)
             if(end):
                return end
          if((row+1 < self.rows) and (column+1 < self.columns) and (self.boardArr[row+1][column+1].getType() == pType)):
@@ -90,7 +90,7 @@ class board:
             if(end):
                return end
          if((row+1 < self.rows) and (column-1 > -1) and (self.boardArr[row+1][column-1].getType() == pType)):
-            end = self.connectDiaLeft(row+1,column-1,pType,2)  
+            end = self.connectDiaLeft(row+1,column-1,pType,2)
             if(end):
                return end
       if(column+1 < self.columns):
@@ -110,7 +110,7 @@ class board:
           return self.connectDown(row+1,column,pType,count+1)
       else:
          return False
-     
+
    def connectRight(self,row,column,pType,count):
       if(count == 4):
          return True
@@ -124,13 +124,13 @@ class board:
    def connectDiaRight(self,row,column,pType,count): # diagonal checks are broken somewhere, sometimes counts 3 as a connect four
       if(count == 4):
          return True
-      if((row+1 < self.rows) and (column+1 < self.columns) and self.boardArr[row+1][column+1].getType() == pType):  
+      if((row+1 < self.rows) and (column+1 < self.columns) and self.boardArr[row+1][column+1].getType() == pType):
          if(count+1 == 4):
             return True
          return self.connectDiaRight(row+1,column+1,pType,count+1)
       else:
          return False
-     
+
    def connectDiaLeft(self,row,column,pType,count): # maybe try up
       if(count == 4):
          return True
