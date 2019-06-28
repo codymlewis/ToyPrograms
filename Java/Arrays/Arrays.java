@@ -11,7 +11,7 @@ public class Arrays{
 	private static int input;
 	private static int[] array1 = new int[1];
 	private static int[] array2 = new int[1];
-	
+
 
 	public static void main(String[] args){
 		Arrays example = new Arrays();
