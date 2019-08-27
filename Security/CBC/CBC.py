@@ -37,4 +37,4 @@ if __name__ == '__main__':
     PLAINTEXT = hexinput("Input the whole plaintext: ")
     KEY = hexinput("Input the key: ")
     IV = hexinput("Input the IV: ")
-    CBC(PLAINTEXT, KEY, IV)
+    CBC(PLAINTEXT, IV, KEY)
