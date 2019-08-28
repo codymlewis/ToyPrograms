@@ -22,7 +22,7 @@ def CBC(plaintext, IV, key):
             hex(
                 int(plaintext[i * 16:i * 16 + 16].hex(), 16) ^ \
                 int(ciphertext[(i - 1) * 16:(i - 1) * 16 + 16].hex(), 16)
-            )[2:]
+            )[2:].zfill(32)
         )
         print(f"P{i + 1} XOR C{i} = {plaintext[i * 16:i * 16 + 16].hex()} XOR {ciphertext[(i - 1) * 16:(i - 1) * 16 + 16].hex()} = {blockin.hex()}")
         blockout = cipher.encrypt(blockin)
