@@ -25,7 +25,7 @@ def CBC(plaintext, IV, key, verbose=False):
     ciphertext = blockout
     answer = input("Input round 1 encrypt or nil: ")
     if answer != "nil":
-        marks += 1 if answer.zfill(32) == blockin.hex().zfill(32) else 0.5
+        marks += 1 if answer.zfill(32) == blockout.hex().zfill(32) else 0.5
     if verbose:
         print(f"C1 = {ciphertext.hex()}")
     for i in range(1, 4):
