@@ -4,7 +4,7 @@ from Crypto.Cipher import AES  # pip install --user pycrypto
 import sys
 
 '''
-Mark AES 128 in CBC mode
+AES 128 in CBC mode
 
 Author: Cody Lewis
 Date: 2019-08-27
@@ -45,7 +45,7 @@ def CBC(plaintext, IV, key, verbose=False):
             print(f"C{i + 1} = {blockout.hex()}")
         answer = input(f"Input round {i + 1} encrypt or nil: ")
         if answer != "nil":
-            marks += 1 if answer.zfill(32) == blockin.hex().zfill(32) else 0.5
+            marks += 1 if answer.zfill(32) == blockout.hex().zfill(32) else 0.5
         ciphertext += blockout
     return marks
 
